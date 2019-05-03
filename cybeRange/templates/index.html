@@ -75,13 +75,12 @@ select, input[type=file], input[type=submit] {
     {% endfor %}
 </ul>
 
-<form action="/upload" class="upload">
+<form id="uploadmalware" action="/upload" method="post" class="upload" accept-charset="utf-8" enctype="multipart/form-data">
     Choose a type to upload...
-    <select>
-        {% for type in types %}
-        <option value="{{ type['name'] }}">{{ type['name'] }}</option>
-        {% endfor %}
-    </select>
+    <br>
+    {% for type in types %}
+    <input type="radio" name="type" value="{{ type['name'] }}">{{ type['name'] }}</option><br>
+    {% endfor %}
     <br>
     <br>
     Choose a file to upload:
