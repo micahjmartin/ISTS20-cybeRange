@@ -6,9 +6,10 @@ import pathlib
 
 routes = web.RouteTableDef()
 app = web.Application()
-aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader('cybeRange/templates'))
+aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader("cybeRange/templates"))
 
-routes.static('/static', 'cybeRange/static')
+routes.static("/static", "cybeRange/static")
+
 
 def get_config():
     filename = pathlib.Path(__file__).parent / "config.yml"
@@ -16,4 +17,5 @@ def get_config():
         config = yaml.load(fil)
     return config
 
-app['config'] = get_config()
+
+app["config"] = get_config()

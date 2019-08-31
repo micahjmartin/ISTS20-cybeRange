@@ -63,17 +63,12 @@ select, input[type=file], input[type=submit] {
 <div class="main">
 <h1>Welcome to the CybeRange!</h1>
 <p>
-        The cybeRange exists to test all of your l33t malware. Upload a file and the cybeRange will spit out a nice report consisting of anti-virus scans, test running, and basic binary inspection.
+        The cybeRange exists to test all of your l33t malware. Upload a file and the cybeRange will spit out a nice report consisting of anti-virus scans, test running, and basic binary inspection. Your goal is to have all your warez bypass anti-virus and not let the defenders get IOCs.
 </p> 
 <p>
-        The cybeRange supports many different types of malware:
+        The cybeRange supports many different types of malware. Try it out now!
 
 </p>
-<ul>
-    {% for type in types %}
-    <li>{{ type['name'] }}</li>
-    {% endfor %}
-</ul>
 
 <form id="uploadmalware" action="/upload" method="post" class="upload" accept-charset="utf-8" enctype="multipart/form-data">
     Choose a type to upload...
@@ -86,7 +81,7 @@ select, input[type=file], input[type=submit] {
     Choose a file to upload:
     <input type="file" name="warez">
     <br><br>
-    <input type="submit">
+    <input type="submit" value="FIRE!!">
 
 </form>
 </div>
