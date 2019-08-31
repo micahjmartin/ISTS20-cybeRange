@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to the cybeRange!</title>
+    </head>
+<style>
+body {
+    background-color: rgb(0, 0, 0);
+    color: green;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    width: 50%;
+}
+
+.main {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 75%;
+    outline: 4px;
+    outline-color: rgba(0, 119, 255, 0.555);
+    outline-style: dashed;
+    box-shadow: 0px 0px 70px purple;
+    padding: 40px;
+    font-size: 1.5em;
+    text-shadow: 0px 0px 20px rgb(0, 230, 0);
+}
+
+
+.upload {
+    outline: 4px;
+    margin-top: 40px;
+    outline-color: rgba(0, 255, 242, 0.555);
+    outline-style: dashed;
+    box-shadow: 0px 0px 70px green;
+    padding: 40px;
+    font-size: 1em;
+    color: rgb(226, 230, 0);
+    text-shadow: 0px 0px 20px rgb(226, 230, 0);
+}
+
+select, input[type=file], input[type=submit] {
+    background-color: rgb(0, 0, 0);
+    border: none;
+    color: white;
+    cursor: pointer;
+    outline-color: rgba(0, 255, 242, 0.041);
+    outline-style: dashed;
+    box-shadow: 0px 0px 70px green;
+    font-size: 1em;
+    color: rgb(226, 230, 0);
+    text-shadow: 0px 0px 20px rgb(226, 230, 0);
+    margin-bottom: 12px;
+}
+</style>
+<body>
+<img src="/static/logo.png" class="center">
+<div class="main">
+<h1>Welcome to the CybeRange!</h1>
+<p>
+        The cybeRange exists to test all of your l33t malware. Upload a file and the cybeRange will spit out a nice report consisting of anti-virus scans, test running, and basic binary inspection. Your goal is to have all your warez bypass anti-virus and not let the defenders get IOCs.
+</p> 
+<p>
+        The cybeRange supports many different types of malware. Try it out now!
+
+</p>
+
+<form id="uploadmalware" action="/upload" method="post" class="upload" accept-charset="utf-8" enctype="multipart/form-data">
+    Choose a type to upload...
+    <br>
+    {% for type in types %}
+    <input type="radio" name="type" value="{{ type }}" required>{{ type }}</option><br>
+    {% endfor %}
+    <br>
+    <br>
+    Choose a file to upload:
+    <input type="file" name="warez">
+    <br><br>
+    <input type="submit" value="FIRE!!">
+
+</form>
+</div>
+
+</body>
+</html>

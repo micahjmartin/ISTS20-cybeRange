@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Job results</title>
+    </head>
+<style>
+body {
+    background-color: rgb(0, 0, 0);
+    color: green;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    width: 50%;
+}
+
+.main {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 75%;
+    outline: 4px;
+    outline-color: rgba(0, 119, 255, 0.555);
+    outline-style: dashed;
+    box-shadow: 0px 0px 70px purple;
+    padding: 40px;
+    font-size: 1.5em;
+    text-shadow: 0px 0px 20px rgb(0, 230, 0);
+}
+
+</style>
+<body>
+<img src="/static/logo.png" class="center">
+<div class="main">
+<h1>Results for {{ filename }}</h1>
+<p>
+
+{{ message }}
+<br>
+{% if not error %}
+Your analysis of '{{ filename }}' to the cybeRange has been completed.<br>
+
+</p>
+
+<h2>Standard out:</h1>
+<pre>
+{{ stdout }}
+</pre>
+
+<h2>Standard error:</h1>
+<pre style="color: red;">
+{{ stderr }}
+</pre>
+
+<h2>Strings in file:</h1>
+<pre>
+{{ strings }}
+</pre>
+
+<h2>Base64 Strings in file:</h1>
+<pre>
+{{ b64_strings }}
+</pre>
+{% endif %}
+
+<h2>Anti-virus results</h2>
+{% for item in antiv %}
+    <img src="/static/{{ item['img'] }}" > {{ item['av'] }} - {{ item['status'] }}<br>
+{% endfor %}
+</div>
+
+</body>
+</html>
