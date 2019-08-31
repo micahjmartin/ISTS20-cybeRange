@@ -74,7 +74,7 @@ select, input[type=file], input[type=submit] {
     Choose a type to upload...
     <br>
     {% for type in types %}
-    <input type="radio" name="type" value="{{ type['name'] }}">{{ type['name'] }}</option><br>
+    <input type="radio" name="type" value="{{ type }}">{{ type }}</option><br>
     {% endfor %}
     <br>
     <br>

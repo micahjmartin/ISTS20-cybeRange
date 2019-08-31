@@ -4,6 +4,7 @@ from binascii import Error
 import re
 import subprocess
 
+
 def getStrings(filename):
     """Get the 'strings' output of the data. Only show longer strings or ones that are interesting
     """
@@ -11,6 +12,7 @@ def getStrings(filename):
     out, _ = p.communicate()
     strings = out.decode("utf-8").strip().split("\n")
     return strings
+
 
 def getBase64Strings(strings):
     if not strings:
@@ -28,20 +30,24 @@ def getBase64Strings(strings):
             pass
     return valid
 
+
 def execute(args, timeout=None):
-    '''
+    """
     Execute a command. Pass the args as an array if there is more than one
-    '''
-    retval = {'status': 255}
+    """
+    retval = {"status": 255, "stdout": "", "stderr": ""}
     try:
-        proc = subprocess.Popen(args, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        retval['stdout'], retval['stderr'] = proc.communicate(timeout=30)
-        retval['status']  = proc.wait()
-        retval['message'] = "The process executed normally"
+        proc = subprocess.Popen(
+            args, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+        )
+        retval["stdout"], retval["stderr"] = proc.communicate(timeout=30)
+        retval["status"] = proc.wait()
+        retval["message"] = "The process executed normally"
     except Exception as E:
         print(type(E), E)
-        retval['message'] = "The process exceeded the time limit (30 seconds)"
+        retval["message"] = "The process exceeded the time limit (30 seconds)"
     return retval
+
 
 def main():
     # Get the strings of the file
@@ -52,7 +58,6 @@ def main():
     print("Decoded B64 strings:", decoded_strs)
     # Actually run the file
     print(execute("bash {}".format(sys.argv[1])))
-
 
 
 if __name__ == "__main__":

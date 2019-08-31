@@ -6,7 +6,7 @@ from cybeRange import app, routes
 @routes.get("/")
 @aiohttp_jinja2.template("index.html")
 async def hello(request):
-    return {"types": list(app["config"].get("mal_types", []))}
+    return {"types": list(app["config"].get("mal_types", {}).keys())}
 
 
 @routes.post("/upload")
@@ -33,6 +33,12 @@ async def get_upload(request):
             size += len(chunk)
             outfile.write(chunk)
 
+    # Get the command to execute for that type
+    typ = typ.decode("utf-8")
+    print(typ)
+    command = app["config"].get("mal_types", {}).get(typ, None)
+    assert command != None
+    print(command.format(filename))
     # TODO: Random Job name here
     # TODO: Actually call the action whenever it works
     return {"filename": filename, "size": size, "job": "asdlfhk4r8fadf"}

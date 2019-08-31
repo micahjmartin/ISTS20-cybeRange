@@ -1,12 +1,7 @@
 ---
 mal_types:
-  - name: bash
-    shell: bash {}
-  - name: python
-    shell: python {}
-  - name: python3
-    shell: python3 {}
-  - name: elf
-    shell: ./{}
-  - name: ruby
-    shell: ruby {}
+  bash: bash {}
+  python: python {}
+  python3: python3 {}
+  elf: ./{}
+  ruby: ruby {}
