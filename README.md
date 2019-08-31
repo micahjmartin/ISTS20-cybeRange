@@ -1,5 +1,5 @@
 # cybeRange
-![](https://raw.githubusercontent.com/micahjmartin/ISTS20-cybeRange/master/cybeRange/static/logo.png)
+![](https://raw.githubusercontent.com/micahjmartin/ISTS20-cybeRange/master/cybeRange/static/logo.png?token=ADTOBCBBAGMY72V2JVBHCGC5OQI22)
 
 
 The cybeRange provides a platform for the BlueTeams to upload binaries and see if they bypass antivirus. It also provides a way for redteam to execute code on the systems.
@@ -15,4 +15,4 @@ You may manually test the program or use teh `test.py` script to test.
 
 
 
-![](https://raw.githubusercontent.com/micahjmartin/ISTS20-cybeRange/master/cybeRange/static/screenshot1.png)
+![](https://raw.githubusercontent.com/micahjmartin/ISTS20-cybeRange/master/cybeRange/static/screenshot1.png?token=ADTOBCBBAGMY72V2JVBHCGC5OQI22)
