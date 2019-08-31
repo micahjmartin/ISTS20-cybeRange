@@ -48,6 +48,8 @@ def execute(args, timeout=None):
         retval["message"] = "The process executed normally"
     except subprocess.TimeoutExpired:
         retval["message"] = "The process exceeded the time limit (30 seconds)"
+    except UnicodeDecodeError:
+        retval["message"] = "Binary output detected in program"        
     return retval
 
 
