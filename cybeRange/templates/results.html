@@ -67,7 +67,7 @@ Your analysis of '{{ filename }}' to the cybeRange has been completed.<br>
 
 <h2>Anti-virus results</h2>
 {% for item in antiv %}
-    <img src="/static/{{ item['img'] }}" > {{ item['av'] }} - Bypassed<br>
+    <img src="/static/{{ item['img'] }}" > {{ item['av'] }} - {{ item['status'] }}<br>
 {% endfor %}
 </div>
 

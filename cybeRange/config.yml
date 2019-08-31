@@ -5,3 +5,21 @@ mal_types:
   python3: python3 {}
   elf: "{}"
   ruby: ruby {}
+antivirus:
+ - Clam AV
+ - Norton
+ - Kapersky
+ - Windows Defender
+ - MalwareBytes
+ - McAffee
+ - VirusTotal
+ - Sysinternals
+ - iptables
+ - Microsoft ATP
+ - Avast!
+ - Carbon Black
+ - Flushot Plus
+ - ZoneAlarm
+ - Symantec EDR
+ - Selinux
+ - Windows Core Isolation

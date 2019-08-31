@@ -28,11 +28,11 @@ async def analyze(filename, filetype, jobid):
     output.update(retval)
 
     # Generate fake Anti-virus reports
-    for i in ["Clam AV", "Norton", "Kapersky", "MalwareBytes", "McAffee"]:
+    for i in app["config"].get("antivirus", ["Kapersky"]):
         if random.choice([True, True, True, True, False]):
-            output["antiv"] += [{"av": i, "img": "check.png"}]
+            output["antiv"] += [{"av": i, "img": "check.png", "status": "Bypassed"}]
         else:
-            output["antiv"] += [{"av": i, "img": "x.png"}]
+            output["antiv"] += [{"av": i, "img": "x.png", "status": "Malware Detected"}]
 
     # Save the results
     with open("jobs/{}/results.json".format(jobid), "w") as ofil:
@@ -103,7 +103,6 @@ async def results(request):
 
 
 if __name__ == "__main__":
-    print(app.get("config"))
     if not os.path.exists("jobs"):
         os.makedirs("jobs")
     app.add_routes(routes)

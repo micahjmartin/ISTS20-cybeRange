@@ -14,7 +14,7 @@ routes.static("/static", "cybeRange/static")
 def get_config():
     filename = pathlib.Path(__file__).parent / "config.yml"
     with open(filename) as fil:
-        config = yaml.load(fil)
+        config = yaml.safe_load(fil)
     return config
 
 
