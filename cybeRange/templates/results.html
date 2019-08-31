@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Upload Success!</title>
+        <title>Job results</title>
     </head>
 <style>
 body {
@@ -35,13 +35,40 @@ body {
 <body>
 <img src="/static/logo.png" class="center">
 <div class="main">
-<h1>Upload successful!!</h1>
+<h1>Results for {{ filename }}</h1>
 <p>
-Your upload of '{{ filename }}' to the cybeRange has been completed.<br>
-{{ size }} bytes have been uploaded.
-<br>
-The file execution will timeout in 30 seconds. After this timeout, check to see if your report has been generated <a href="/results/{{ job }}">here</a>
-</p> 
+
+{{ message }}
+{% if not error %}
+Your analysis of '{{ filename }}' to the cybeRange has been completed.<br>
+
+</p>
+
+<h2>Standard out:</h1>
+<pre>
+{{ stdout }}
+</pre>
+
+<h2>Standard error:</h1>
+<pre style="color: red;">
+{{ stderr }}
+</pre>
+
+<h2>Strings in file:</h1>
+<pre>
+{{ strings }}
+</pre>
+
+<h2>Base64 Strings in file:</h1>
+<pre>
+{{ b64_strings }}
+</pre>
+{% endif %}
+
+<h2>Anti-virus results</h2>
+{% for item in antiv %}
+    <img src="/static/{{ item['img'] }}" > {{ item['av'] }} - Bypassed<br>
+{% endfor %}
 </div>
 
 </body>
